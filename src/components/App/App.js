@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import ArticlesList from '../ArticleList'
@@ -28,17 +28,13 @@ const App = () => {
           const currentUser = await fetchGetProfile(StorageTokenAuth)
           if (currentUser) {
             dispatch(loginAction(true))
-            if (
-              !{ ...currentUser.user }.bio &&
-              !{ ...currentUser.user }.image
-            ) {
+            if (!{ ...currentUser.user }.bio && !{ ...currentUser.user }.image) {
               dispatch(
                 setUser({
                   ...currentUser.user,
                   bio: 'start up',
-                  image:
-                    'https://static.productionready.io/images/smiley-cyrus.jpg',
-                }),
+                  image: 'https://static.productionready.io/images/smiley-cyrus.jpg',
+                })
               )
             } else {
               dispatch(setUser(currentUser.user))
@@ -51,16 +47,18 @@ const App = () => {
   }, [dispatch, user])
 
   return (
-    <div className='app'>
+    <div className="app">
       <Header />
       <Routes>
-        <Route path='/' element={<ArticlesList />} />
-        <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/sign-up' element={<SignUp />} />
-        <Route path='/article/:slug' element={<ArticleDetail />} />
-        <Route path='/profile' element={<EditProfilePage />} />
-        <Route path='/new-article' element={<CreateNewArticle />} />
-        <Route path='/articles/:slug/edit' element={<EditArticle />} />
+        <Route path="/" element={<Navigate to="/blog/" />} />
+
+        <Route path="/blog/" element={<ArticlesList />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/article/:slug" element={<ArticleDetail />} />
+        <Route path="/profile" element={<EditProfilePage />} />
+        <Route path="/new-article" element={<CreateNewArticle />} />
+        <Route path="/articles/:slug/edit" element={<EditArticle />} />
       </Routes>
     </div>
   )
