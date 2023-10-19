@@ -1,44 +1,43 @@
 .form.tag {
-    flex-direction: row;
-    column-gap: 10px;
-    align-items: end;
-    justify-content: space-between;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: end;
+  justify-content: space-between;
 }
 
 .button.tag {
-    flex-basis: 46%;
-    height: 33px;
+  flex-basis: 46%;
+  height: 33px;
 }
 
 .form__label.tag {
-    flex-basis: 46%;
+  flex-basis: 46%;
 }
 
-
 .tags {
-    display: flex;
-    width: 100%;
-    column-gap: 10px;
-    justify-content: space-between;
+  display: flex;
+  width: 100%;
+  column-gap: 10px;
+  justify-content: space-between;
 
-    &__name {
-        border: 1px solid #d9d9d9;
-        border-radius: 6px;
-        flex-basis: 46%;
-        padding: 4px;
-        color: #868585;
+  &__name {
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    flex-basis: 46%;
+    padding: 4px;
+    color: #868585;
+  }
+
+  &__button {
+    background: transparent;
+    color: red;
+    border: 1px solid red;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-basis: 46%;
+
+    &:hover {
+      opacity: 0.5;
     }
-
-    &__button {
-        background: transparent;
-        color: red;
-        border: 1px solid red;
-        border-radius: 6px;
-        cursor: pointer;
-        flex-basis: 46%;
-
-        &:hover {
-            opacity: 0.5;
-        }
-    }
+  }
 }

@@ -55,11 +55,10 @@ const ArticleDetail = () => {
   }, [history])
 
   if (!articleDetail) {
-    return <LinearProgress color='secondary' />
+    return <LinearProgress color="secondary" />
   }
 
-  const { title, description, createdAt, author, tagList, body } =
-    articleDetail.article
+  const { title, description, createdAt, author, tagList, body } = articleDetail.article
 
   const viewButton = author.username === user.username
 
@@ -77,18 +76,9 @@ const ArticleDetail = () => {
 
   return (
     <>
-      <Modal
-        open={open}
-        aria-labelledby='modal-modal-title'
-        aria-describedby='modal-modal-description'
-      >
+      <Modal open={open} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
-          <Typography
-            id='modal-modal-description'
-            variant='h6'
-            component='h2'
-            sx={{ mt: 2 }}
-          >
+          <Typography id="modal-modal-description" variant="h6" component="h2" sx={{ mt: 2 }}>
             Are you sure to delete this article?
           </Typography>
           <button
@@ -103,7 +93,7 @@ const ArticleDetail = () => {
               cursor: 'pointer',
               margin: '20px 0 0 100px',
             }}
-            type='button'
+            type="button"
             onClick={() => {
               fetchDeleteArticle(slug, token)
               history('/')
@@ -112,7 +102,7 @@ const ArticleDetail = () => {
             YES
           </button>
           <button
-            type='button'
+            type="button"
             onClick={() => {
               setOpen(false)
             }}
@@ -132,18 +122,18 @@ const ArticleDetail = () => {
           </button>
         </Box>
       </Modal>
-      <div className='container'>
-        <div className='article-detail'>
-          <section className='article-detail__row-one'>
-            <ul className='article-detail__row-one-box'>
-              <ul className='column-one-box'>
-                <li className='article__title'>
+      <div className="container">
+        <div className="article-detail">
+          <section className="article-detail__row-one">
+            <ul className="article-detail__row-one-box">
+              <ul className="column-one-box">
+                <li className="article__title">
                   <h5>{title}</h5>
                 </li>
                 <li>
                   <button
-                    type='button'
-                    className='article__like'
+                    type="button"
+                    className="article__like"
                     onClick={() => {
                       if (isLoginIn) {
                         if (isLiked) {
@@ -163,38 +153,36 @@ const ArticleDetail = () => {
                   </button>
                 </li>
               </ul>
-              <li className='article__tag'>
+              <li className="article__tag">
                 {tagList.map((item) => (
-                  <span key={uniqid()} className='tag-name'>
+                  <span key={uniqid()} className="tag-name">
                     {item}
                   </span>
                 ))}
               </li>
             </ul>
-            <ul className='article-detail__row-one'>
-              <div className='article-detail__box'>
-                <li className='article__username'>{author.username}</li>
-                <li className='article__date'>
-                  {format(parseISO(createdAt), 'MMMM d, y')}
-                </li>
+            <ul className="article-detail__row-one">
+              <div className="article-detail__box">
+                <li className="article__username">{author.username}</li>
+                <li className="article__date">{format(parseISO(createdAt), 'MMMM d, y')}</li>
               </div>
               <div>
-                <img src={author.image} alt='' className='article__img' />
+                <img src={author.image} alt="" className="article__img" />
               </div>
             </ul>
           </section>
-          <section className='article-detail__row-two'>
+          <section className="article-detail__row-two">
             {description}
             {viewButton && (
-              <div className='article-detail__row-two-box'>
+              <div className="article-detail__row-two-box">
                 <Link to={`/articles/${slug}/edit`}>
-                  <button type='button' className='article-button-edit'>
+                  <button type="button" className="article-button-edit">
                     Edit
                   </button>
                 </Link>
                 <button
-                  className='article-button-delete'
-                  type='button'
+                  className="article-button-delete"
+                  type="button"
                   onClick={() => {
                     setOpen(true)
                   }}
@@ -204,10 +192,10 @@ const ArticleDetail = () => {
               </div>
             )}
           </section>
-          <section className='article-detail__row-three'>
+          <section className="article-detail__row-three">
             <ReactMarkdown>{body}</ReactMarkdown>
           </section>
-          <ul className='column-two' />
+          <ul className="column-two" />
         </div>
       </div>
     </>

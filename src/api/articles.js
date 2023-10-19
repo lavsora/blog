@@ -18,10 +18,7 @@ export const fetchArticles = (offset, token) => {
     body: null,
   }
   return (dispatch) =>
-    fetch(
-      `https://blog.kata.academy/api/articles?offset=${offset}&limit=5`,
-      options,
-    )
+    fetch(`https://blog.kata.academy/api/articles?offset=${offset}&limit=5`, options)
       .then((response) => response.json())
       .then((json) => dispatch(addArticlesAction(json)))
       .catch((err) => {
@@ -39,10 +36,7 @@ export const fetchArticle = async (slug, token) => {
     },
     body: null,
   }
-  const response = await fetch(
-    `https://blog.kata.academy/api/articles/${slug}`,
-    options,
-  )
+  const response = await fetch(`https://blog.kata.academy/api/articles/${slug}`, options)
   if (!response.ok) {
     return checkResponseStatus(response)
   }
@@ -62,10 +56,7 @@ export const fetchArticleCreate = async (data, token) => {
     body: JSON.stringify(data),
   }
 
-  const response = await fetch(
-    'https://blog.kata.academy/api/articles',
-    options,
-  )
+  const response = await fetch('https://blog.kata.academy/api/articles', options)
   if (!response.ok) {
     return checkResponseStatus(response)
   }
@@ -85,10 +76,7 @@ export const fetchEditArticle = async (data, token, slug) => {
     body: JSON.stringify(data),
   }
 
-  const response = await fetch(
-    `https://blog.kata.academy/api/articles/${slug}`,
-    options,
-  )
+  const response = await fetch(`https://blog.kata.academy/api/articles/${slug}`, options)
   if (!response.ok) {
     return checkResponseStatus(response)
   }
@@ -123,10 +111,7 @@ export const fetchAddFavoriteArticle = async (slug, token) => {
   }
 
   try {
-    await fetch(
-      `https://blog.kata.academy/api/articles/${slug}/favorite`,
-      options,
-    )
+    await fetch(`https://blog.kata.academy/api/articles/${slug}/favorite`, options)
   } catch (err) {
     throw new Error(`Could not fetch, received ${err}`)
   }
@@ -142,10 +127,7 @@ export const fetchDeleteFavoriteArticle = async (slug, token) => {
     },
   }
   try {
-    await fetch(
-      `https://blog.kata.academy/api/articles/${slug}/favorite`,
-      options,
-    )
+    await fetch(`https://blog.kata.academy/api/articles/${slug}/favorite`, options)
   } catch (err) {
     throw new Error(`Could not fetch, received ${err}`)
   }

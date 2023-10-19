@@ -7,11 +7,7 @@ import uniqid from 'uniqid'
 import Article from '../Article'
 import { fetchArticles } from '../../api/articles'
 import { setArticleListOffset } from '../../store/reducers/articleReducer'
-import {
-  selectArticleListOffset,
-  selectArticles,
-  selectArticlesCount,
-} from '../../store/selectors/selectors'
+import { selectArticleListOffset, selectArticles, selectArticlesCount } from '../../store/selectors/selectors'
 
 import './ArticleList.scss'
 
@@ -35,20 +31,20 @@ const ArticlesList = () => {
   }, [dispatch, token, articleListOffset])
 
   if (isLoading) {
-    return <LinearProgress color='secondary' />
+    return <LinearProgress color="secondary" />
   }
 
   return (
-    <div className='container'>
+    <div className="container">
       {articles.map((item) => (
         <Article key={uniqid()} item={item} />
       ))}
       <Pagination
         count={totalPages}
         page={articleListOffset}
-        variant='outlined'
-        shape='rounded'
-        color='secondary'
+        variant="outlined"
+        shape="rounded"
+        color="secondary"
         onChange={(_, page) => dispatch(setArticleListOffset(page))}
       />
     </div>

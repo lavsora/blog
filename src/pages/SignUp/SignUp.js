@@ -33,7 +33,7 @@ const SignUp = () => {
         email: data.email,
         bio: 'start up',
         image: 'https://static.productionready.io/images/smiley-cyrus.jpg',
-      }),
+      })
     )
 
     if (responseUp.errors) {
@@ -43,10 +43,7 @@ const SignUp = () => {
     }
 
     if (responseUp) {
-      localStorage.setItem(
-        'currentUser',
-        JSON.stringify(responseUp.user.token),
-      )
+      localStorage.setItem('currentUser', JSON.stringify(responseUp.user.token))
       await fetchSignIn({
         user: {
           email: data.email,
@@ -63,12 +60,12 @@ const SignUp = () => {
 
   return (
     <>
-      {isLoading && <LinearProgress color='secondary' />}
+      {isLoading && <LinearProgress color="secondary" />}
       <div className={`wrapper-form ${isLoading ? 'active' : ''}`}>
-        <div className='form-container'>
-          <span className='form__name'>Create new account</span>
-          <form className='form' onSubmit={handleSubmit(submitForm)}>
-            <label className='form__label'>
+        <div className="form-container">
+          <span className="form__name">Create new account</span>
+          <form className="form" onSubmit={handleSubmit(submitForm)}>
+            <label className="form__label">
               Username
               <input
                 {...register('username', {
@@ -82,10 +79,10 @@ const SignUp = () => {
                     message: 'Maximum 12 symbols',
                   },
                 })}
-                type='text'
-                className='form__input'
-                placeholder='Username'
-                name='username'
+                type="text"
+                className="form__input"
+                placeholder="Username"
+                name="username"
                 onChange={(e) => {
                   // eslint-disable-next-line no-unused-expressions
                   e.target.value !== '' && setAlert(false)
@@ -93,17 +90,17 @@ const SignUp = () => {
                 disabled={isLoading}
               />
               {errors.username && (
-                <span className='form__message' style={{ color: 'red' }}>
+                <span className="form__message" style={{ color: 'red' }}>
                   {errors.username.message}
                 </span>
               )}
               {alert && (
-                <span className='form__message' style={{ color: 'red' }}>
+                <span className="form__message" style={{ color: 'red' }}>
                   Such a user already exists — try again!
                 </span>
               )}
             </label>
-            <label className='form__label'>
+            <label className="form__label">
               Email address
               <input
                 {...register('email', {
@@ -117,9 +114,9 @@ const SignUp = () => {
                     message: 'Maximum 40 symbols',
                   },
                 })}
-                type='email'
-                className='form__input'
-                placeholder='Email address'
+                type="email"
+                className="form__input"
+                placeholder="Email address"
                 onChange={(e) => {
                   // eslint-disable-next-line no-unused-expressions
                   e.target.value !== '' && setAlert(false)
@@ -127,18 +124,18 @@ const SignUp = () => {
                 disabled={isLoading}
               />
               {errors.email && (
-                <span className='form__message' style={{ color: 'red' }}>
+                <span className="form__message" style={{ color: 'red' }}>
                   {errors.email.message}
                 </span>
               )}
             </label>
-            <label className='form__label'>
+            <label className="form__label">
               Password
               <input
-                name='password'
-                type='password'
-                className='form__input'
-                placeholder='Password'
+                name="password"
+                type="password"
+                className="form__input"
+                placeholder="Password"
                 {...register('password', {
                   required: 'You must specify a password',
                   minLength: {
@@ -153,21 +150,20 @@ const SignUp = () => {
                 disabled={isLoading}
               />
               {errors.password && (
-                <span className='form__message' style={{ color: 'red' }}>
+                <span className="form__message" style={{ color: 'red' }}>
                   {errors.password.message}
                 </span>
               )}
             </label>
-            <label className='form__label'>
+            <label className="form__label">
               Repeat Password
               <input
-                name='password_repeat'
-                type='password'
-                className='form__input'
-                placeholder='Repeat Password'
+                name="password_repeat"
+                type="password"
+                className="form__input"
+                placeholder="Repeat Password"
                 {...register('password_repeat', {
-                  validate: (value) =>
-                    value === watch('password') || 'The passwords do not match',
+                  validate: (value) => value === watch('password') || 'The passwords do not match',
                 })}
                 onChange={(e) => {
                   // eslint-disable-next-line no-unused-expressions
@@ -176,22 +172,18 @@ const SignUp = () => {
                 disabled={isLoading}
               />
               {errors.password_repeat && (
-                <span className='form__message' style={{ color: 'red' }}>
+                <span className="form__message" style={{ color: 'red' }}>
                   {errors.password_repeat.message}
                 </span>
               )}
             </label>
-            <label className='personal-info'>
-              <input
-                type='checkbox'
-                checked={check}
-                onChange={() => setCheck(!check)}
-              />
-              I agree to the processing of my personal information
+            <label className="personal-info">
+              <input type="checkbox" checked={check} onChange={() => setCheck(!check)} />I agree to the processing of my
+              personal information
             </label>
             <input
-              className='button'
-              type='submit'
+              className="button"
+              type="submit"
               checked={check}
               value={isLoading ? 'Loading...' : 'Login'}
               disabled={!check || isLoading}

@@ -23,10 +23,7 @@ export async function fetchSignIn(body) {
     },
     body: JSON.stringify(body),
   }
-  const response = await fetch(
-    'https://blog.kata.academy/api/users/login',
-    options,
-  )
+  const response = await fetch('https://blog.kata.academy/api/users/login', options)
   const json = await response.json()
   return json
 }

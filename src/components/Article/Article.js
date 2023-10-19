@@ -7,10 +7,7 @@ import uniqid from 'uniqid'
 
 import './Article.scss'
 
-import {
-  fetchAddFavoriteArticle,
-  fetchDeleteFavoriteArticle,
-} from '../../api/articles'
+import { fetchAddFavoriteArticle, fetchDeleteFavoriteArticle } from '../../api/articles'
 import { selectIsLogIn } from '../../store/selectors/selectors'
 
 const Article = ({ item }) => {
@@ -44,41 +41,35 @@ const Article = ({ item }) => {
   }
 
   return (
-    <div className='article'>
-      <ul className='column-one'>
-        <ul className='column-one-box'>
+    <div className="article">
+      <ul className="column-one">
+        <ul className="column-one-box">
           <Link to={`/article/${slug}`}>
-            <li className='article__title'>{title}</li>
+            <li className="article__title">{title}</li>
           </Link>
-          <ul className='column-two'>
+          <ul className="column-two">
             <li>
-              <button
-                type='button'
-                className='article__like'
-                onClick={favoriteArticle}
-              >
+              <button type="button" className="article__like" onClick={favoriteArticle}>
                 {favorited ? <span>❤️️</span> : <span>🤍</span>}
                 {favoritesCount}
               </button>
             </li>
-            <ul className='column-box'>
-              <li className='article__username'>{author.username}</li>
-              <li className='article__date'>
-                {format(parseISO(createdAt), 'MMMM d, y')}
-              </li>
+            <ul className="column-box">
+              <li className="article__username">{author.username}</li>
+              <li className="article__date">{format(parseISO(createdAt), 'MMMM d, y')}</li>
             </ul>
-            <img src={author.image} alt='' className='article__img' />
+            <img src={author.image} alt="" className="article__img" />
           </ul>
         </ul>
-        <li className='article__tag'>
+        <li className="article__tag">
           {tagList.map((item) => (
-            <span key={uniqid()} className='tag-name'>
+            <span key={uniqid()} className="tag-name">
               {item}
             </span>
           ))}
         </li>
-        <span className='article__description'>{description}</span>
-        <span className='article__body'>
+        <span className="article__description">{description}</span>
+        <span className="article__body">
           <ReactMarkdown>{body}</ReactMarkdown>
         </span>
       </ul>

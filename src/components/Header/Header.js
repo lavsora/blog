@@ -20,24 +20,20 @@ const Header = () => {
   }
 
   return (
-    <div className='wrapper-header'>
-      <div className='header'>
-        <Link to='/'>
-          <span className='header__logo'>Real world Blog</span>
+    <div className="wrapper-header">
+      <div className="header">
+        <Link to="/">
+          <span className="header__logo">Real world Blog</span>
         </Link>
-        <div className='nav'>
+        <div className="nav">
           {isLogIn && (
             <>
-              <Link to='/new-article'>
-                <button
-                  style={{ padding: '5px' }}
-                  type='button'
-                  className='nav__item create__article'
-                >
+              <Link to="/new-article">
+                <button style={{ padding: '5px' }} type="button" className="nav__item create__article">
                   create article{' '}
                 </button>
               </Link>
-              <Link to='/profile'>
+              <Link to="/profile">
                 <button
                   style={
                     isLogIn && {
@@ -47,15 +43,15 @@ const Header = () => {
                       columnGap: '10px',
                     }
                   }
-                  className='nav__item'
-                  type='button'
+                  className="nav__item"
+                  type="button"
                 >
                   {user.username}
-                  <img src={user.image} alt='user_image' />
+                  <img src={user.image} alt="user_image" />
                 </button>
               </Link>
-              <Link to='/' onClick={handleLogOut}>
-                <button className='nav__item' type='button'>
+              <Link to="/" onClick={handleLogOut}>
+                <button className="nav__item" type="button">
                   Log Out
                 </button>
               </Link>
@@ -63,13 +59,13 @@ const Header = () => {
           )}
           {!isLogIn && (
             <>
-              <Link to='/sign-in'>
-                <button className='nav__item' type='button'>
+              <Link to="/sign-in">
+                <button className="nav__item" type="button">
                   Sign In
                 </button>
               </Link>
-              <Link to='/sign-up'>
-                <button className='nav__item' type='button'>
+              <Link to="/sign-up">
+                <button className="nav__item" type="button">
                   Sign Up
                 </button>
               </Link>

@@ -3,10 +3,10 @@ const defaultState = {
   articlesCount: null,
   articleListOffset: 1,
 }
-  
+
 const ADD_ARTICLES = 'ADD_ARTICLES'
 const SET_ARTICLE_LIST_OFFSET = 'SET_ARTICLE_LIST_OFFSET'
-  
+
 const articleReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_ARTICLES:
@@ -24,7 +24,7 @@ const articleReducer = (state = defaultState, action) => {
       return state
   }
 }
-  
+
 export const addArticlesAction = (payload) => ({ type: ADD_ARTICLES, payload })
 export const setArticleListOffset = (payload) => ({
   type: SET_ARTICLE_LIST_OFFSET,
