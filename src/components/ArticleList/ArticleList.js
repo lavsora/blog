@@ -45,7 +45,10 @@ const ArticlesList = () => {
         variant="outlined"
         shape="rounded"
         color="secondary"
-        onChange={(_, page) => dispatch(setArticleListOffset(page))}
+        onChange={(_, page) => {
+          localStorage.setItem('page', page)
+          dispatch(setArticleListOffset(page))
+        }}
       />
     </div>
   )

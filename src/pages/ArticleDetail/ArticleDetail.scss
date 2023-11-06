@@ -53,3 +53,31 @@
   background: transparent;
   cursor: pointer;
 }
+
+.modal__button-yes {
+  font-family: 'Inter Regular', sans-serif;
+  font-size: 18px;
+  padding: 3px 10px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  margin: 20px 0 0 100px;
+}
+
+.modal__button-no {
+  font-family: 'Inter Regular', sans-serif;
+  font-size: 18px;
+  padding: 3px 10px;
+  border: 1px solid #52c41a;
+  color: #52c41a;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.article a {
+  text-decoration: none;
+}

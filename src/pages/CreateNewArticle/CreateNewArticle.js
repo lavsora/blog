@@ -41,6 +41,12 @@ const CreateNewArticle = () => {
     setTags(newTags)
   }
 
+  const isEmpty = (value) => {
+    if (value.trim()) return value.trim()
+
+    return value.trim()
+  }
+
   return (
     <div className="wrapper-form">
       <div className="form-container">
@@ -54,6 +60,7 @@ const CreateNewArticle = () => {
               placeholder="Title"
               {...register('title', {
                 required: 'empty',
+                validate: isEmpty,
               })}
             />
             {errors.title && (
@@ -70,6 +77,7 @@ const CreateNewArticle = () => {
               placeholder="Short description"
               {...register('description', {
                 required: 'empty',
+                validate: isEmpty,
               })}
             />
             {errors.description && (
@@ -86,6 +94,7 @@ const CreateNewArticle = () => {
               placeholder="Text"
               {...register('body', {
                 required: 'empty',
+                validate: isEmpty,
               })}
             />
             {errors.body && (

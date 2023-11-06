@@ -23,6 +23,13 @@
   column-gap: 20px;
   align-items: center;
 
+  .nav__item {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
   a .nav__item {
     font-family: 'Inter Regular', sans-serif;
     font-size: 18px;
@@ -31,6 +38,10 @@
     background: none;
     cursor: pointer;
     color: #262626;
+
+    button {
+      padding: 5px;
+    }
 
     img {
       width: 46px;

@@ -29,23 +29,12 @@ const Header = () => {
           {isLogIn && (
             <>
               <Link to="/new-article">
-                <button style={{ padding: '5px' }} type="button" className="nav__item create__article">
+                <button type="button" className="nav__item create__article">
                   create article{' '}
                 </button>
               </Link>
               <Link to="/profile">
-                <button
-                  style={
-                    isLogIn && {
-                      padding: '0',
-                      display: 'flex',
-                      alignItems: 'center',
-                      columnGap: '10px',
-                    }
-                  }
-                  className="nav__item"
-                  type="button"
-                >
+                <button className="nav__item" type="button">
                   {user.username}
                   <img src={user.image} alt="user_image" />
                 </button>

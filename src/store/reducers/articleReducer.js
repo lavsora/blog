@@ -1,7 +1,7 @@
 const defaultState = {
   articles: [],
   articlesCount: null,
-  articleListOffset: 1,
+  articleListOffset: JSON.parse(localStorage.getItem('page')) || 1,
 }
 
 const ADD_ARTICLES = 'ADD_ARTICLES'

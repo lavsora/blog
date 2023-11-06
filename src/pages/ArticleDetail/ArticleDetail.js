@@ -82,17 +82,7 @@ const ArticleDetail = () => {
             Are you sure to delete this article?
           </Typography>
           <button
-            style={{
-              fontFamily: 'Inter Regular sansSerif',
-              fontSize: '18px',
-              padding: '3px 10px',
-              border: '1px solid red',
-              color: 'red',
-              borderRadius: '5px',
-              background: 'transparent',
-              cursor: 'pointer',
-              margin: '20px 0 0 100px',
-            }}
+            className="modal__button-yes"
             type="button"
             onClick={() => {
               fetchDeleteArticle(slug, token)
@@ -102,20 +92,10 @@ const ArticleDetail = () => {
             YES
           </button>
           <button
+            className="modal__button-no"
             type="button"
             onClick={() => {
               setOpen(false)
-            }}
-            style={{
-              fontFamily: 'Inter Regular sansSerif',
-              fontSize: '18px',
-              padding: '3px 10px',
-              border: '1px solid #52c41a',
-              color: '#52c41a',
-              borderRadius: '5px',
-              background: 'transparent',
-              cursor: 'pointer',
-              margin: '5px',
             }}
           >
             NO
